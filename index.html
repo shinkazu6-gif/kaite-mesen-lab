@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>買い手目線ラボ｜先着3社モニター受付中！大手小売の買い物客目線×AI EC・LP購買導線改修</title>
+  <meta name="description" content="50項目カゴ落ち精密監査＋競合3社比較＋そのまま貼れる比較表HTMLパーツ＋カゴ落ち回収配信3通まで一式納品。公開記念の先着3社様限定モニター枠（税抜29,800円）＆無料1箇所診断（0円）受付中。">
+  <style>
+    :root {
+      --navy: #0f172a;
+      --navy-mid: #1e293b;
+      --slate: #475569;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --gold: #d97706;
+      --gold-light: #fef3c7;
+      --gold-dark: #b45309;
+      --emerald: #059669;
+      --rose: #e11d48;
+      --border: #e2e8f0;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      color: var(--navy);
+      background: var(--bg);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+    a { color: var(--gold-dark); text-decoration: underline; text-underline-offset: 3px; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .campaign-bar {
+      background: linear-gradient(90deg, #b45309, #d97706);
+      color: #fff;
+      text-align: center;
+      font-size: 0.86rem;
+      font-weight: 800;
+      padding: 8px 16px;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.12rem; color: var(--navy); text-decoration: none; }
+    .brand-badge { background: var(--navy); color: #fff; font-size: 0.72rem; padding: 3px 8px; border-radius: 6px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--gold); color: #fff !important; font-weight: 800;
+      padding: 12px 24px; border-radius: 999px; text-decoration: none !important;
+      border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.32);
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #fff; color: var(--navy) !important; font-weight: 700;
+      padding: 12px 24px; border-radius: 999px; text-decoration: none !important;
+      border: 1.5px solid var(--border); cursor: pointer;
+    }
+    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; padding: 72px 0 68px; }
+    .hero-eyebrow {
+      display: inline-block; background: rgba(251, 191, 36, 0.2);
+      border: 1px solid rgba(251, 191, 36, 0.5); color: #fde68a;
+      font-size: 0.84rem; font-weight: 800; padding: 5px 14px; border-radius: 999px; margin-bottom: 18px;
+    }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.75rem); line-height: 1.32; font-weight: 800; margin-bottom: 18px; }
+    .hero h1 span { color: #fbbf24; }
+    .hero-lead { font-size: 1.05rem; color: #cbd5e1; max-width: 780px; margin-bottom: 28px; }
+    section { padding: 68px 0; }
+    .section-alt { background: #fff; }
+    .section-head { text-align: center; max-width: 740px; margin: 0 auto 42px; }
+    .section-tag {
+      display: inline-block; color: var(--gold-dark); background: var(--gold-light);
+      font-weight: 800; font-size: 0.78rem; padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
+    .monitor-banner {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2.5px solid var(--gold); border-radius: 20px; padding: 32px; margin-bottom: 44px; box-shadow: var(--shadow);
+    }
+    .pricing-card {
+      background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius);
+      padding: 26px; display: flex; flex-direction: column; position: relative; box-shadow: var(--shadow);
+    }
+    .pricing-card.featured { border: 2.5px solid var(--gold); }
+    .popular-tag {
+      position: absolute; top: -12px; right: 20px; background: var(--rose);
+      color: #fff; font-size: 0.76rem; font-weight: 800; padding: 4px 12px; border-radius: 999px;
+    }
+    .price-num { font-size: 1.95rem; font-weight: 800; margin: 8px 0 4px; }
+    .feature-list { list-style: none; margin: 16px 0 20px; flex: 1; }
+    .feature-list li { font-size: 0.9rem; color: var(--slate); padding: 6px 0; border-bottom: 1px dashed var(--border); }
+    .feature-list li::before { content: "✓ "; color: var(--emerald); font-weight: 800; }
+    .sim-wrap { background: #fff; border: 2px solid var(--navy); border-radius: 20px; padding: 32px; box-shadow: var(--shadow); }
+    .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; }
+    .form-control { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--border); font-size: 0.94rem; font-family: inherit; }
+    .estimate-result { background: var(--navy); color: #fff; border-radius: 14px; padding: 20px; margin-bottom: 14px; }
+    .estimate-price { font-size: 1.75rem; font-weight: 800; color: #fbbf24; }
+    textarea.generated-msg {
+      width: 100%; height: 185px; padding: 12px; border-radius: 10px;
+      border: 1.5px solid var(--border); font-size: 0.86rem; font-family: inherit; line-height: 1.6; margin-bottom: 12px;
+    }
+    footer { background: var(--navy); color: #94a3b8; padding: 44px 0; font-size: 0.85rem; }
+    footer a { color: #fde68a; }
+  </style>
+</head>
+<body>
+
+<div class="campaign-bar">
+  【公開記念・先着3社様限定】6大納品フルパッケージ「実績モニター特別枠（税抜29,800円）」＆「無料1箇所診断（0円）」受付中！
+</div>
+
+<header>
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-badge">EC・LP改善</span>
+      買い手目線ラボ
+    </a>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <a href="https://docs.google.com/presentation/d/1bAkGnIInFF0AS-gEtUt9qQZcPuYqCWalopiRQIUj1gM/edit" target="_blank" rel="noopener" style="font-size:0.84rem;font-weight:700;color:var(--navy);">資料スライドを見る</a>
+      <a href="#simulator" class="btn-primary" style="padding:8px 18px;font-size:0.85rem;">無料診断・モニター申込</a>
+    </div>
+  </div>
+</header>
+
+<section id="top" class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">大手小売の買い物客目線 × 最先端AI定量監査</div>
+    <h1>デザイン変更0円・定例会議なし。<br><span>「50項目監査＋貼るだけ改善原稿＋回収配信」</span>を一括納品。</h1>
+    <p class="hero-lead">
+      世界のEC調査（<a href="https://baymard.com/blog/cart-abandonment-rate" target="_blank" rel="noopener" style="color:#fde68a;">Baymard Institute 2026</a>）で平均70.22%にのぼるカゴ落ちを、チャット完結で解消。<br>
+      Shopify・楽天・BASE等の管理画面にそのままコピペできるA/B完成原稿と装飾HTMLパーツを最短5営業日でお届けします。
+    </p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="#simulator" onclick="selectPlan('monitor_298')" class="btn-primary">先着3社モニター枠（29,800円）を予約する</a>
+      <a href="#simulator" onclick="selectPlan('free_diag')" class="btn-secondary">まずは無料「1箇所診断（0円）」を試す</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">6-PIECE ENTERPRISE DELIVERABLES</span>
+      <h2>制作会社30万〜60万円クラスの「6大納品パッケージ」を標準装備</h2>
+      <p>一般的なLP・LPO外注相場（<a href="https://stock-sun.com/column/lp-production-cost/" target="_blank" rel="noopener">StockSun調査</a>・<a href="https://cone-c-slide.com/liblog/ec/" target="_blank" rel="noopener">slide lib調査</a>）の約1/3以下で即戦力原稿を一式お渡しします。</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="font-size:1.08rem;margin-bottom:8px;">① 50項目×100点満点 精密監査＆投資回収試算シート</h3>
+        <p style="font-size:0.9rem;color:var(--slate);">5領域50項目で現行ページを定量採点し、何日で改修費を回収できるかスプレッドシートで可視化します（<a href="https://docs.google.com/spreadsheets/d/11OG_cLN1IXCqelIcZ7_utajHxsYuqhbxdgmSIDwKUxY/edit" target="_blank" rel="noopener">実物サンプル</a>）。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1.08rem;margin-bottom:8px;">② 競合3社×12軸 ベンチマーク比較マトリクス</h3>
+        <p style="font-size:0.9rem;color:var(--slate);">同ジャンル上位3社と送料・発送日・ギフト対応・比較表有無を横断比較し、勝てる差別化軸を特定します。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1.08rem;margin-bottom:8px;">③ 全7ブロックA/B完成原稿＆スマホ撮影4カット指示</h3>
+        <p style="font-size:0.9rem;color:var(--slate);">日常実感軸（A案）とギフト安心軸（B案）の2パターンで全ブロックの完成原稿を作成します（<a href="https://docs.google.com/document/d/1y51wp00mTOx_1S0Am_ap-MMGHF5182euqb7sP3GvvSE/edit" target="_blank" rel="noopener">完成見本集</a>）。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1.08rem;margin-bottom:8px;">④ コーダー不要！比較表＆開閉FAQの装飾HTMLパーツ</h3>
+        <p style="font-size:0.9rem;color:var(--slate);">Shopify・BASE・楽天のHTML欄にそのままコピペするだけで整うスマホ3列比較表と開閉FAQコードを同梱します。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1.08rem;margin-bottom:8px;">⑤ カゴ落ち回収ステップ配信3通＆同梱サンクスカード</h3>
+        <p style="font-size:0.9rem;color:var(--slate);">1時間後・24時間後・72時間後のカゴ落ちフォロー文と、高評価レビューが自然に集まる同梱ハガキ文を納品します。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1.08rem;margin-bottom:8px;">⑥ 景品表示法リスク表現チェック＆安全言い換え表</h3>
+        <p style="font-size:0.9rem;color:var(--slate);"><a href="https://www.caa.go.jp/policies/policy/representation/fair_labeling/representation_regulation" target="_blank" rel="noopener">消費者庁基準</a>（優良誤認・有利誤認）に配慮した表現セルフチェック表を添付します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="monitor-banner">
+      <span style="background:var(--rose);color:#fff;font-size:0.8rem;font-weight:800;padding:4px 12px;border-radius:999px;">先着3社様限定・残り枠わずか</span>
+      <h2 style="font-size:1.55rem;margin-top:10px;">公開記念「実績掲載モニター特別枠」のご案内</h2>
+      <p style="margin-top:8px;color:var(--navy-mid);font-size:0.95rem;">
+        サービス公開記念として、改善後のご感想（社名匿名イニシャル可）をいただける<strong>先着3社様限定</strong>で、一番人気の「スポット竹・6大納品フルパッケージ（通常税抜120,000円）」を<strong>特別モニター価格 29,800円（税抜／税込32,780円）</strong>でお引き受けいたします。
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="pricing-card featured">
+        <span class="popular-tag">先着3社限定モニター</span>
+        <span style="font-weight:700;color:var(--gold-dark);font-size:0.86rem;">公開記念モニター枠（条件：匿名感想ご提供）</span>
+        <h3 style="font-size:1.18rem;margin-top:4px;">主力1ページ 6大納品フルパッケージ</h3>
+        <div class="price-num">29,800円 <small style="font-size:0.85rem;color:var(--muted);">（税抜）</small></div>
+        <p style="font-size:0.82rem;color:var(--muted);">通常税抜120,000円 → 初回3社様のみ特別適用</p>
+        <ul class="feature-list">
+          <li>50項目精密監査＆競合3社比較スプレッドシート</li>
+          <li>全7ブロックA/B完成原稿＋装飾HTMLパーツ</li>
+          <li>カゴ落ち回収配信3通＋同梱カード＋景表法表</li>
+          <li>公開14日後の無料ワンポイント再点検つき</li>
+        </ul>
+        <a href="#simulator" onclick="selectPlan('monitor_298')" class="btn-primary">モニター枠の空きを確認する</a>
+      </div>
+
+      <div class="pricing-card">
+        <span style="font-weight:700;color:var(--muted);font-size:0.86rem;">通常スポット標準プラン</span>
+        <h3 style="font-size:1.18rem;margin-top:4px;">丸ごと購買導線リニューアル（竹）</h3>
+        <div class="price-num">120,000円 <small style="font-size:0.85rem;color:var(--muted);">（税抜）</small></div>
+        <p style="font-size:0.82rem;color:var(--muted);">秘密保持（実績非公開）希望の企業様はこちら</p>
+        <ul class="feature-list">
+          <li>上記6大納品フルパッケージ一式（非公開対応可）</li>
+          <li>スマホ自然光4カット撮影ディレクション指示</li>
+          <li>無料微調整2回対応・納期目安7〜10営業日</li>
+        </ul>
+        <a href="#simulator" onclick="selectPlan('spot_120')" class="btn-secondary">通常プランで相談する</a>
+      </div>
+
+      <div class="pricing-card">
+        <span style="font-weight:700;color:var(--muted);font-size:0.86rem;">公開後の継続育成（初期0円・縛りなし）</span>
+        <h3 style="font-size:1.18rem;margin-top:4px;">月次改善パートナー（グロース4点）</h3>
+        <div class="price-num">月額 80,000円 <small style="font-size:0.85rem;color:var(--muted);">（税抜）</small></div>
+        <p style="font-size:0.82rem;color:var(--muted);">スポット顧客優待：初月お試し税抜60,000円</p>
+        <ul class="feature-list">
+          <li>月次CVR推移＆競合3社キャンペーン変動ウォッチ</li>
+          <li>月2箇所のA/B差し替え原稿＋新着レビューFAQ対策</li>
+          <li>そのまま配信して売上を作る季節LINE/メルマガ原稿2本</li>
+        </ul>
+        <a href="#simulator" onclick="selectPlan('retainer_80')" class="btn-secondary">継続プランを相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="simulator" class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">30-SECOND APPLICATION</span>
+      <h2>無料1箇所診断・先着モニター枠のお申し込みフォーム</h2>
+      <p>メニューを選ぶと送信メッセージが自動作成されます。定例Zoom会議や電話営業は一切行いません。</p>
+    </div>
+
+    <div class="sim-wrap">
+      <div class="sim-grid">
+        <div>
+          <div class="form-group">
+            <label for="planSelect">1. ご希望メニューを選択</label>
+            <select id="planSelect" class="form-control" onchange="updateEstimate()">
+              <option value="monitor_298" selected>【先着3社限定】6大納品フルパッケージ・モニター特別枠（税抜29,800円）</option>
+              <option value="free_diag">【完全無料】現在のページ「最優先1箇所」ワンポイント診断（0円）</option>
+              <option value="spot_70">通常スポット梅：50項目監査＋冒頭3スクロール改修（税抜70,000円）</option>
+              <option value="spot_120">通常スポット竹：6大納品フルパッケージ・非公開対応（税抜120,000円）</option>
+              <option value="retainer_80">月次改善パートナー：月次グロース4点セット（スポット顧客初月税抜60,000円）</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="companyInput">2. ショップ名・貴社名</label>
+            <input type="text" id="companyInput" class="form-control" placeholder="例：〇〇オンラインストア" oninput="updateEstimate()">
+          </div>
+          <div class="form-group">
+            <label for="urlInput">3. 対象ページのURL</label>
+            <input type="url" id="urlInput" class="form-control" placeholder="https://..." oninput="updateEstimate()">
+          </div>
+        </div>
+
+        <div>
+          <div class="estimate-result">
+            <div style="font-size:0.82rem;color:#cbd5e1;">お見積り目安（会議なしチャット完結・修正2回無料）</div>
+            <div id="estPrice" class="estimate-price">29,800円（税込 32,780円）</div>
+            <div id="estDelivery" style="font-size:0.85rem;color:#fde68a;margin-top:4px;">先着3社モニター枠（ご感想イニシャル掲載OK条件）</div>
+          </div>
+          <textarea id="generatedMsg" class="generated-msg" readonly></textarea>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="button" class="btn-primary" onclick="copyInquiry()">申込文をコピーする</button>
+            <a id="mailtoBtn" href="mailto:shinkazu6@icloud.com" class="btn-secondary">メールアプリで送信する</a>
+          </div>
+          <div id="copyFeedback" style="display:none;color:var(--emerald);font-weight:700;font-size:0.88rem;margin-top:8px;">✓ コピーしました！そのまま shinkazu6@icloud.com またはチャット窓口へお送りください。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong style="color:#fff;">買い手目線ラボ（KAZ Retail &amp; AI Partner）</strong>｜代表ディレクター：KAZ</p>
+    <p style="margin-top:4px;">お問い合わせ窓口：<a href="mailto:shinkazu6@icloud.com">shinkazu6@icloud.com</a> ｜ <a href="https://docs.google.com/presentation/d/1bAkGnIInFF0AS-gEtUt9qQZcPuYqCWalopiRQIUj1gM/edit" target="_blank" rel="noopener">公式サービス案内資料スライド</a></p>
+    <p style="margin-top:4px;font-size:0.78rem;">※特定商取引法に基づく事業者氏名・所在地・電話番号等の法定事項は、ご請求またはお取引開始時に書面（電子メール）にて遅滞なく開示いたします。</p>
+  </div>
+</footer>
+
+<script>
+  const PLANS = {
+    monitor_298: {
+      title: "【先着3社限定】6大納品フルパッケージ・モニター特別枠",
+      priceText: "29,800円（税込 32,780円）",
+      delivery: "先着3社モニター枠（納品後のご感想イニシャル掲載OK条件）"
+    },
+    free_diag: {
+      title: "【完全無料】現在のページ「最優先1箇所」ワンポイント診断",
+      priceText: "0円（完全無料・営業連絡なし）",
+      delivery: "URL受領から2〜3営業日以内にA4・1枚診断書を送付"
+    },
+    spot_70: {
+      title: "スポット梅：50項目監査＋冒頭3スクロール改修",
+      priceText: "70,000円（税込 77,000円）",
+      delivery: "初稿ご提出目安：約5営業日"
+    },
+    spot_120: {
+      title: "スポット竹：6大納品フルパッケージ（実績非公開対応）",
+      priceText: "120,000円（税込 132,000円）",
+      delivery: "初稿ご提出目安：7〜10営業日"
+    },
+    retainer_80: {
+      title: "月次改善パートナー：月次グロース4点セット",
+      priceText: "月額 80,000円（スポット顧客初月 税抜60,000円）",
+      delivery: "初期費用0円・1か月単位でいつでも停止可"
+    }
+  };
+
+  function selectPlan(key) {
+    document.getElementById('planSelect').value = key;
+    updateEstimate();
+  }
+
+  function updateEstimate() {
+    const key = document.getElementById('planSelect').value;
+    const company = document.getElementById('companyInput').value.trim() || "（貴社名・ショップ名）";
+    const url = document.getElementById('urlInput').value.trim() || "（対象ページURL）";
+    const p = PLANS[key];
+    document.getElementById('estPrice').textContent = p.priceText;
+    document.getElementById('estDelivery').textContent = p.delivery;
+
+    const msg = `買い手目線ラボ KAZ様\n\nはじめまして、${company}と申します。\n以下のメニューについて申し込み・相談をしたくご連絡いたしました。\n\n■ご希望メニュー：${p.title}\n■料金目安：${p.priceText}\n■対象ページURL：${url}\n\n空き状況と今後の進め方についてご案内いただけますでしょうか。よろしくお願いいたします。`;
+    document.getElementById('generatedMsg').value = msg;
+    document.getElementById('mailtoBtn').href = `mailto:shinkazu6@icloud.com?subject=${encodeURIComponent('【買い手目線ラボ】お申し込み・ご相談（' + company + '）')}&body=${encodeURIComponent(msg)}`;
+  }
+
+  function copyInquiry() {
+    const ta = document.getElementById('generatedMsg');
+    ta.select();
+    if (navigator.clipboard) navigator.clipboard.writeText(ta.value);
+    const fb = document.getElementById('copyFeedback');
+    fb.style.display = 'block';
+    setTimeout(() => { fb.style.display = 'none'; }, 3500);
+  }
+
+  updateEstimate();
+</script>
+</body>
+</html>
